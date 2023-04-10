@@ -1,4 +1,7 @@
 import React from "react";
+
+import NewExpense from "./components/NewExpense/NewExpense";
+
 /* no longer need an import from ExpenseItem.jsx -> now simply just from Expenses */
 /* Into components then Expenses folder then get Expenses jsx file */
 import Expenses from "./components/Expenses/Expenses";
@@ -37,6 +40,7 @@ const App = () => {
 
   return (
     <div>
+      <NewExpense />
       {/* We are using props to get expenses into this new 'to be created' component. */}
       <Expenses expenses={expenses} />
     </div>
