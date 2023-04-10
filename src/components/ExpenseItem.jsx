@@ -33,11 +33,16 @@ function ExpenseItem(props) {
       {/* now we are funnelling data through multiple levels of components */}
 
       {/* We are forwarding our data (with the help of props) through multiple components */}
+
+      {/* This content- between the opneing ExpenseDate tag and the closing tag for the <div>
+      with the class expense-item__description is what will be available on props children */}
+
       <ExpenseDate date={props.date} />
       <div className="expense-item__description">
         {/* Getting access to the title property, which will exist, because we
         set a title attribute. The key which I access on my props object has to 
         be the name I picked for my attribute. */}
+
         <h2>{props.title}</h2>
         <div className="expense-item__price">${props.amount}</div>
       </div>
