@@ -1,4 +1,11 @@
-import React from "react";
+/* React is the default import, we need specifically named things from the react library -
+i.e. a function called useState */
+
+///// IMPORTANT USESTATE DEFINITION
+/* useState = function provided by the React library, allows us to define values as state
+where changes to these values should reflect in the component function being called again */
+
+import React, { useState } from "react";
 /* need to import ExpenseDate - our second custom component cause we're splitting components */
 import ExpenseDate from "./ExpenseDate";
 
@@ -29,8 +36,25 @@ pairs in our props object. */
 const ExpenseItem = (props) => {
   /* move the logic out of the JSX code which we are attempting to keep as lean as possible, 
   don't want logic within it */
+
+  // USE STATE SPECIFIC THEORY
+  /* useState is a hook to utilise -> MUST ONLY BE CALLED INSIDE REACT FUNCTIONS */
+
+  /* useState wants a default/initial state value (props.title) because we create a special 
+  variable, where changes will need this function to be called again */
+
+  /* useState returns an array, first value is the variable itself, second is the updated
+  function */
+
+  /* array destructing utilised, to store both elements in seperate variables or consts */
+
+  /* convention is call the first variable whatever you want, second set then the name 
+  of the first variable  */
+
+  const [title, setTitle] = useState(props.title);
+
   const clickHandler = () => {
-    console.log("Clicked");
+    setTitle("Updated!");
   };
   return (
     <Card className="expense-item">
@@ -50,7 +74,7 @@ const ExpenseItem = (props) => {
         set a title attribute. The key which I access on my props object has to 
         be the name I picked for my attribute. */}
 
-        <h2>{props.title}</h2>
+        <h2>{title}</h2>
         <div className="expense-item__price">${props.amount}</div>
       </div>
       {/* Below note we are just pointing to the clickHandler function */}
