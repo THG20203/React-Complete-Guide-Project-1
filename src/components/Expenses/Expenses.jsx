@@ -50,6 +50,14 @@ const Expenses = (props) => {
         amount={props.expenses[3].amount}
         date={props.expenses[3].date}
       />
+      {/* ExpenseItem is being used four times. In Expenses js, we have four ExpenseItems.
+      Now every item recieves its own seperate State, which is detached from the other states */}
+
+      {/* Everytime it is called, a new seperate state is created. (of course, this is in the 
+        same way, but its managed independently by React) */}
+
+      {/* so if we change the title with a button onClick in the first ExpenseItem, the other ones 
+      are not effected cause they have their own state. Its on a per component instance basis */}
     </Card>
   );
 };

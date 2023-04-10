@@ -40,6 +40,9 @@ const ExpenseItem = (props) => {
   // USE STATE SPECIFIC THEORY
   /* useState is a hook to utilise -> MUST ONLY BE CALLED INSIDE REACT FUNCTIONS */
 
+  /* useState registers some state (some value as a state) for the component in which it is being 
+  called. Go even more precise -> it registers it for a specific component instance */
+
   /* useState wants a default/initial state value (props.title) because we create a special 
   variable, where changes will need this function to be called again */
 
@@ -52,6 +55,11 @@ const ExpenseItem = (props) => {
   of the first variable  */
 
   const [title, setTitle] = useState(props.title);
+
+  /* In addition, whenever state changes because we click a button in this case, its only
+  this component function (expenseItem) and only that specific instance of where this component
+  is being used, where react will re-evaluate it, so will be called 4 times if we use ExpenseItem 
+  as component four times in Expenses as we are */
 
   const clickHandler = () => {
     setTitle("Updated!");
