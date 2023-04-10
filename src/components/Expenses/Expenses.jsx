@@ -1,7 +1,8 @@
 import React from "react";
 import "./Expenses.css";
 import ExpenseItem from "./ExpenseItem";
-import Card from "./Card";
+/* Go up one level in folder with .. and then into UI folder */
+import Card from "../UI/Card";
 
 /* want new component - responsible for rendering the four Expense items, so that these four items
 are no longer rendered in the App component. I have instead created a new component to do that instead. */

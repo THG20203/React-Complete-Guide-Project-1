@@ -3,7 +3,8 @@ import React from "react";
 import ExpenseDate from "./ExpenseDate";
 
 /* need pre defined styles from our Card component */
-import Card from "./Card";
+/* Go up one level in folder with .. and then into UI folder */
+import Card from "../UI/Card";
 
 /* make overall build process aware of css file, tell it css code should be considered */
 import "./ExpenseItem.css";

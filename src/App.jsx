@@ -1,6 +1,7 @@
 import React from "react";
 /* no longer need an import from ExpenseItem.jsx -> now simply just from Expenses */
-import Expenses from "./components/Expenses";
+/* Into components then Expenses folder then get Expenses jsx file */
+import Expenses from "./components/Expenses/Expenses";
 
 /* React code is JS code - App.jsx is a fairly trivial file */
 
