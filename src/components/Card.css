@@ -1,7 +1,6 @@
 .card {
-  /* these styles have been cut from Expenses.css */
-
-  /* pre defined styles for the card component */
+  /* these styles have been cut from Expenses.css, we will treat them as pre defined
+  styles for the card component */
   border-radius: 12px;
   box-shadow: 0 1px 8px rgba(0, 0, 0, 0.25);
 }

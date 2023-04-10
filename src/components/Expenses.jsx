@@ -1,5 +1,6 @@
 import "./Expenses.css";
 import ExpenseItem from "./ExpenseItem";
+import Card from "./Card";
 
 /* want new component - responsible for rendering the four Expense items, so that these four items
 are no longer rendered in the App component. I have instead created a new component to do that instead. */
@@ -9,9 +10,9 @@ are no longer rendered in the App component. I have instead created a new compon
 /* Why are we doing this? Make our JSX code a bit leaner by extracting some JSX code into seperate 
 component */
 
-const Expenses = (props) => {
+function Expenses(props) {
   return (
-    <div className="expenses">
+    <Card className="expenses">
       {/* Uppercase character - custom components must start with uppercase character */}
 
       {/* Passing data of 4 expense objects above into the expense items, so need to make expense items
@@ -47,8 +48,8 @@ const Expenses = (props) => {
         amount={props.expenses[3].amount}
         date={props.expenses[3].date}
       />
-    </div>
+    </Card>
   );
-};
+}
 
 export default Expenses;

@@ -32,6 +32,7 @@ function App() {
       date: new Date(2021, 5, 12),
     },
   ];
+
   return (
     <div>
       {/* We are using props to get expenses into this new 'to be created' component. */}
