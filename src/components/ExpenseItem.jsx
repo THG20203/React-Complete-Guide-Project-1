@@ -19,7 +19,17 @@ function ExpenseItem(props) {
   return (
     <div className="expense-item">
       {/*toISOString - return date as string value in ISO format */}
-      <h2>{props.date.toISOString()}</h2>
+      <div>
+        {/* Output value dynamically and acces props.date. How can we output the month? We can use a built
+        in method - accessible on all date objects in JavaScript - toLocaleString. This toLocaleString 
+        method helps output dates in human readable formats. */}
+
+        {/* Passing in two arguments to toLocaleString, first is the language, second is an object where
+        you configure how specifically that they should be formatted */}
+        <div>{props.date.toLocaleString("en-GB", { month: "long" })}</div>
+        <div>Year</div>
+        <div>Day</div>
+      </div>
       <div className="expense-item__description">
         {/* Getting access to the title property, which will exist, because we
         set a title attribute. The key which I access on my props object has to 
