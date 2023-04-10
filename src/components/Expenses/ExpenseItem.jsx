@@ -27,6 +27,11 @@ pairs in our props object. */
   with the class of expense-item */
 
 const ExpenseItem = (props) => {
+  /* move the logic out of the JSX code which we are attempting to keep as lean as possible, 
+  don't want logic within it */
+  const clickHandler = () => {
+    console.log("Clicked");
+  };
   return (
     <Card className="expense-item">
       {/* In ExpenseItem -> referencing the split component ExpenseDate we should set the date 
@@ -48,21 +53,10 @@ const ExpenseItem = (props) => {
         <h2>{props.title}</h2>
         <div className="expense-item__price">${props.amount}</div>
       </div>
-      {/* Add prop to button, (not one that sets value for button) instead its a prop 
-      that starts with on */}
+      {/* Below note we are just pointing to the clickHandler function */}
 
-      {/* For example add onClick which creates an event listener for click events to the 
-      button */}
-
-      {/* Need to define what should happen when a click occurs, this should be code thats
-      executed when the click occurs. We need a function for the value */}
-      <button
-        onClick={() => {
-          console.log("Click");
-        }}
-      >
-        Change Title
-      </button>
+      {/* I am repeating just the name, no parentheses etc because of JSX */}
+      <button onClick={clickHandler}>Change Title</button>
     </Card>
   );
 };
