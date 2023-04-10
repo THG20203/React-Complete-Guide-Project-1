@@ -16,17 +16,28 @@ attributes as properties, hence the name props */
 pairs in our props object. */
 
 function ExpenseItem(props) {
+  /* Output value dynamically and acces props.date. How can we output the month? We can use a built
+  in method - accessible on all date objects in JavaScript - toLocaleString. This toLocaleString 
+  method helps output dates in human readable formats. */
+
+  /* Passing in two arguments to toLocaleString, first is the language, second is an object where
+  you configure how specifically that they should be formatted */
+
+  /* better to NOT add normal JavaScript into JSX code, but to create a seperate helper variable. 
+  Something like month, which is a seperate helper const that simply holds that value. */
+
+  /* Why put logic up here? Keep JSX code lean, more complex logic is rest of function. JSX = easier 
+  to read */
+
+  const month = props.date.toLocaleString("en-GB", { month: "long" });
+
   return (
     <div className="expense-item">
       {/*toISOString - return date as string value in ISO format */}
       <div>
-        {/* Output value dynamically and acces props.date. How can we output the month? We can use a built
-        in method - accessible on all date objects in JavaScript - toLocaleString. This toLocaleString 
-        method helps output dates in human readable formats. */}
+        {/* Between curly braces in JSX code, point at 'month' helper variable or const as it is (ES6) */}
 
-        {/* Passing in two arguments to toLocaleString, first is the language, second is an object where
-        you configure how specifically that they should be formatted */}
-        <div>{props.date.toLocaleString("en-GB", { month: "long" })}</div>
+        <div>{month}</div>
         <div>Year</div>
         <div>Day</div>
       </div>
