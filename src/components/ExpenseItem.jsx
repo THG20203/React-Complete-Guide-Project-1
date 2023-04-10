@@ -16,21 +16,16 @@ attributes as properties, hence the name props */
 pairs in our props object. */
 
 function ExpenseItem(props) {
-  /* since we start at 0 with months - April has the number 3 */
-  const expenseDate = new Date(2023, 3, 10);
-  const expenseTitle = "Car Insurance";
-  const expenseAmount = 294.67;
-
   return (
     <div className="expense-item">
       {/*toISOString - return date as string value in ISO format */}
-      <h2>{expenseDate.toISOString()}</h2>
+      <h2>{props.date.toISOString()}</h2>
       <div className="expense-item__description">
         {/* Getting access to the title property, which will exist, because we
         set a title attribute. The key which I access on my props object has to 
         be the name I picked for my attribute. */}
         <h2>{props.title}</h2>
-        <div className="expense-item__price">${expenseAmount}</div>
+        <div className="expense-item__price">${props.amount}</div>
       </div>
     </div>
   );
