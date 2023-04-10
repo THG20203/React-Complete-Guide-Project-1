@@ -48,6 +48,21 @@ const ExpenseItem = (props) => {
         <h2>{props.title}</h2>
         <div className="expense-item__price">${props.amount}</div>
       </div>
+      {/* Add prop to button, (not one that sets value for button) instead its a prop 
+      that starts with on */}
+
+      {/* For example add onClick which creates an event listener for click events to the 
+      button */}
+
+      {/* Need to define what should happen when a click occurs, this should be code thats
+      executed when the click occurs. We need a function for the value */}
+      <button
+        onClick={() => {
+          console.log("Click");
+        }}
+      >
+        Change Title
+      </button>
     </Card>
   );
 };
