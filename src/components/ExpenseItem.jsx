@@ -30,16 +30,20 @@ function ExpenseItem(props) {
   to read */
 
   const month = props.date.toLocaleString("en-GB", { month: "long" });
+  /* same as above for day but we want it in a 2-digit format */
+  const day = props.date.toLocaleString("en-GB", { day: "2-digit" });
+  /* for year - access getFullYear -> which is another built-in which just extracts
+  the year as a four digit number */
+  const year = props.date.getFullYear();
 
   return (
     <div className="expense-item">
       {/*toISOString - return date as string value in ISO format */}
       <div>
         {/* Between curly braces in JSX code, point at 'month' helper variable or const as it is (ES6) */}
-
         <div>{month}</div>
-        <div>Year</div>
-        <div>Day</div>
+        <div>{year}</div>
+        <div>{day}</div>
       </div>
       <div className="expense-item__description">
         {/* Getting access to the title property, which will exist, because we
