@@ -48,7 +48,9 @@ function App() {
 
       {/* Access expenses array, within here first item with index 0, then in there the object -> with a 
       title property. */}
-      <ExpenseItem title={expenses[0]} />
+
+      {/* note the attribute names are up to me */}
+      <ExpenseItem title={expenses[0].title} amount={expenses[0].amount} />
       <ExpenseItem />
       <ExpenseItem />
       <ExpenseItem />
