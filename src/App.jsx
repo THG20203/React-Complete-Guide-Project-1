@@ -1,3 +1,4 @@
+import React from "react";
 /* no longer need an import from ExpenseItem.jsx -> now simply just from Expenses */
 import Expenses from "./components/Expenses";
 

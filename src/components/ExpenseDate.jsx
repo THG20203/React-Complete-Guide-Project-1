@@ -1,3 +1,4 @@
+import React from "react";
 /* import css file for ExpenseItem.css -> make entire project aware of that css file */
 import "./ExpenseDate.css";
 

@@ -1,3 +1,4 @@
+import React from "react";
 /* Web Development - when you hear the term Card it typically means some kind of container look,
 with rounded corners etc */
 

@@ -1,3 +1,4 @@
+import React from "react";
 /* First code file, will be executed when page is loaded */
 
 /* index.jsx file WILL BE FIRST TO BE EXECUTED */

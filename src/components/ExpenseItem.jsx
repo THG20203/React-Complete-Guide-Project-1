@@ -1,3 +1,4 @@
+import React from "react";
 /* need to import ExpenseDate - our second custom component cause we're splitting components */
 import ExpenseDate from "./ExpenseDate";
 
