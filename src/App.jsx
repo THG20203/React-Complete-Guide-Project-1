@@ -11,7 +11,7 @@ import Expenses from "./components/Expenses/Expenses";
 its JSX - works in JS files because of overall project setup ->
 transformation steps running behind the scenes */
 
-function App() {
+const App = () => {
   /* four objects inside of expenses array */
   const expenses = [
     {
@@ -41,6 +41,6 @@ function App() {
       <Expenses expenses={expenses} />
     </div>
   );
-}
+};
 
 export default App;

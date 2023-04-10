@@ -3,7 +3,7 @@ import React from "react";
 import "./ExpenseDate.css";
 
 /* Splitting components -> props need to be accepted here, such that a date prop is set */
-function ExpenseDate(props) {
+const ExpenseDate = (props) => {
   /* Output value dynamically and acces props.date. How can we output the month? We can use a built
   in method - accessible on all date objects in JavaScript - toLocaleString. This toLocaleString 
   method helps output dates in human readable formats. */
@@ -30,6 +30,6 @@ function ExpenseDate(props) {
       <div className="expense-date__day">{day}</div>
     </div>
   );
-}
+};
 
 export default ExpenseDate;

@@ -12,7 +12,7 @@ are no longer rendered in the App component. I have instead created a new compon
 /* Why are we doing this? Make our JSX code a bit leaner by extracting some JSX code into seperate 
 component */
 
-function Expenses(props) {
+const Expenses = (props) => {
   return (
     <Card className="expenses">
       {/* Uppercase character - custom components must start with uppercase character */}
@@ -52,6 +52,6 @@ function Expenses(props) {
       />
     </Card>
   );
-}
+};
 
 export default Expenses;

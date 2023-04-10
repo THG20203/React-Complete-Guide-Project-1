@@ -22,12 +22,12 @@ we're setting as a class name on that div */
 /* Now making sure any values set on the class named prop is added to this long string of class names which 
 is then finally set on the div inside of the card */
 
-function Card(props) {
+const Card = (props) => {
   /* So now, anything we recieve as a className from outside is added to that string -> remember the 
   whitespace after card */
   const classes = "card " + props.className;
   /* In the div we are returning, we can dynamically point at the classes constant */
   return <div className={classes}>{props.children}</div>;
-}
+};
 
 export default Card;

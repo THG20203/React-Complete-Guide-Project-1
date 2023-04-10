@@ -26,7 +26,7 @@ pairs in our props object. */
 /* We've replaced our <div> with our custom card component (see the Card element we are returning 
   with the class of expense-item */
 
-function ExpenseItem(props) {
+const ExpenseItem = (props) => {
   return (
     <Card className="expense-item">
       {/* In ExpenseItem -> referencing the split component ExpenseDate we should set the date 
@@ -50,6 +50,6 @@ function ExpenseItem(props) {
       </div>
     </Card>
   );
-}
+};
 
 export default ExpenseItem;
