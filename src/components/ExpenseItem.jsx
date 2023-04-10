@@ -1,3 +1,5 @@
+import ExpenseDate from "./ExpenseDate";
+
 /* make overall build process aware of css file, tell it css code should be considered */
 import "./ExpenseItem.css";
 
@@ -16,35 +18,9 @@ attributes as properties, hence the name props */
 pairs in our props object. */
 
 function ExpenseItem(props) {
-  /* Output value dynamically and acces props.date. How can we output the month? We can use a built
-  in method - accessible on all date objects in JavaScript - toLocaleString. This toLocaleString 
-  method helps output dates in human readable formats. */
-
-  /* Passing in two arguments to toLocaleString, first is the language, second is an object where
-  you configure how specifically that they should be formatted */
-
-  /* better to NOT add normal JavaScript into JSX code, but to create a seperate helper variable. 
-  Something like month, which is a seperate helper const that simply holds that value. */
-
-  /* Why put logic up here? Keep JSX code lean, more complex logic is rest of function. JSX = easier 
-  to read */
-
-  const month = props.date.toLocaleString("en-GB", { month: "long" });
-  /* same as above for day but we want it in a 2-digit format */
-  const day = props.date.toLocaleString("en-GB", { day: "2-digit" });
-  /* for year - access getFullYear -> which is another built-in which just extracts
-  the year as a four digit number */
-  const year = props.date.getFullYear();
-
   return (
     <div className="expense-item">
-      {/*toISOString - return date as string value in ISO format */}
-      <div>
-        {/* Between curly braces in JSX code, point at 'month' helper variable or const as it is (ES6) */}
-        <div>{month}</div>
-        <div>{year}</div>
-        <div>{day}</div>
-      </div>
+      <ExpenseDate date={props.date} />
       <div className="expense-item__description">
         {/* Getting access to the title property, which will exist, because we
         set a title attribute. The key which I access on my props object has to 
