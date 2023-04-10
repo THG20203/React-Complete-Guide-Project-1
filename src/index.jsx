@@ -15,6 +15,9 @@ will transform it, so extra features work in browser even though they wouldn't w
 in regular js - i.e. import of css shown below */
 
 import "./index.css";
+
+/* App is a component -> render in the place of element with the id of root */
+
 import App from "./App";
 
 /* importing ReactDOM to call the createRoot method on it */
