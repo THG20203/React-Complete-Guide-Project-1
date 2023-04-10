@@ -1,3 +1,4 @@
+/* need to import ExpenseDate - our second custom component cause we're splitting components */
 import ExpenseDate from "./ExpenseDate";
 
 /* make overall build process aware of css file, tell it css code should be considered */
@@ -20,6 +21,12 @@ pairs in our props object. */
 function ExpenseItem(props) {
   return (
     <div className="expense-item">
+      {/* In ExpenseItem -> referencing the split component ExpenseDate we should set the date 
+      prop */}
+
+      {/* now we are funnelling data through multiple levels of components */}
+
+      {/* We are forwarding our data (with the help of props) through multiple components */}
       <ExpenseDate date={props.date} />
       <div className="expense-item__description">
         {/* Getting access to the title property, which will exist, because we
