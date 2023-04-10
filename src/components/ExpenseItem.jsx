@@ -1,6 +1,9 @@
 /* need to import ExpenseDate - our second custom component cause we're splitting components */
 import ExpenseDate from "./ExpenseDate";
 
+/* need pre defined styles from our Card component */
+import Card from "./Card";
+
 /* make overall build process aware of css file, tell it css code should be considered */
 import "./ExpenseItem.css";
 
@@ -18,9 +21,12 @@ attributes as properties, hence the name props */
 /* Props hold all the values we get for the attributes on our custom element We get key value
 pairs in our props object. */
 
+/* We've replaced our <div> with our custom card component (see the Card element we are returning 
+  with the class of expense-item */
+
 function ExpenseItem(props) {
   return (
-    <div className="expense-item">
+    <Card className="expense-item">
       {/* In ExpenseItem -> referencing the split component ExpenseDate we should set the date 
       prop */}
 
@@ -35,7 +41,7 @@ function ExpenseItem(props) {
         <h2>{props.title}</h2>
         <div className="expense-item__price">${props.amount}</div>
       </div>
-    </div>
+    </Card>
   );
 }
 
