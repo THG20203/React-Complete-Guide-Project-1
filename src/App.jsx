@@ -1,3 +1,8 @@
+/* we are looking for an expenseitem file in a components folder which sits next to App.js file
+in which we have this imports statement */
+
+import ExpenseItem from "./components/ExpenseItem";
+
 /* React code is JS code - App.jsx is a fairly trivial file */
 
 /* Holds a function called App and then we export this function */
@@ -9,7 +14,8 @@ transformation steps running behind the scenes */
 function App() {
   return (
     <div>
-      <h2>Let's get started!</h2>
+      {/* Uppercase character - custom components must start with uppercase character */}
+      <ExpenseItem />
     </div>
   );
 }
