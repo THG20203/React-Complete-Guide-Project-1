@@ -17,6 +17,13 @@ const ExpenseForm = () => {
 
     /* since we passed this function to react basically to the onChange prop below, react/ browser
     will make sure we get such an event object when this change event occurs */
+
+    /* target is the field we're interested in -> it points at the DOM element for which the event 
+    occured -> in which cause the input. And the input in turn has a long list of properties we can read
+    and set -> namely the 'value' property (holds the current value of the input at the point this event
+    occurs). */
+    /* This is super useful -> means we can drill into this target and then the value, to get the value
+    which was currently entered when the event occured for the element we're listening. */
     console.log(event.target.value);
   };
 
