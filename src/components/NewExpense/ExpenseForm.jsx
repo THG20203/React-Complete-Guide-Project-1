@@ -4,7 +4,7 @@ import "./ExpenseForm.css";
 const ExpenseForm = () => {
   /* best to add logic here and not within the JSX code like we have discussed before. To 
   make it clear this will be called on an event - end the const name with handler */
-  const [enteredTitle, setEnteredTitle] = useState("");
+
   /* we are adding useState at the beginning of the ExpenseForm function and setting the state
   for the title input so to say */
 
@@ -14,14 +14,14 @@ const ExpenseForm = () => {
   convention, the second should be setEnteredTitle */
 
   /* calling useState more than once -> can have multiple states, multiple states slices or state 
-  pieces per component */
-
-  /* all of these states inside of one of the same components will be totally seperated from each 
-  other. */
-  const [enteredAmount, setEnteredAmount] = useState("");
-  /* if you read the value of an imput element, it'll always be a string even if it stores a number,
-  it'll be a number as a string. Same for date. */
-  const [enteredDate, setEnteredDate] = useState("");
+  pieces per component - BUT ITS BETTER -> to use one state - and use an OBJECT. In this object,
+  we can group together my three States. Logic is the state but now in one state object. Logic for 
+  useState is managed at one piece of state rather than three seperate slices. */
+  useState({
+    enteredTitle: "",
+    enteredAmount: "",
+    enteredDate: "",
+  });
 
   ///////
 
