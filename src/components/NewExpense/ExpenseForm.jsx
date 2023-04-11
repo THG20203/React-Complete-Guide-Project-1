@@ -6,7 +6,19 @@ const ExpenseForm = () => {
   make it clear this will be called on an event - end the const name with handler */
 
   /* function should be executed whenever the title input changes */
-  const titleChangeHandler = () => {};
+  const titleChangeHandler = (event) => {
+    /* this function will execute everytime we type in the 'title' labeled field */
+
+    /* we want to get the value the user entered. How do we get that value? Pass in the event object
+    to the titleChangeHandler function. */
+
+    /* we automatically get an event oject which describes the event which occured. Thats a default 
+    JavaScript behavior you get in the browser when you listen to events.  */
+
+    /* since we passed this function to react basically to the onChange prop below, react/ browser
+    will make sure we get such an event object when this change event occurs */
+    console.log(event.target.value);
+  };
 
   return (
     <form>
