@@ -1,9 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import "./ExpenseForm.css";
 
 const ExpenseForm = () => {
   /* best to add logic here and not within the JSX code like we have discussed before. To 
   make it clear this will be called on an event - end the const name with handler */
+  const [enteredTitle, setEnteredTitle] = useState("");
+  /* we are adding useState at the beginning of the ExpenseForm function and setting the state
+  for the title input so to say */
+
+  /* initially useState('') is an empty string - for the first time nothing was entered */
+
+  /* but then -> we can use destructuring to get two elements - enteredTitle -> then following the
+  convention, the second should be setEnteredTitle */
+
+  ///////
 
   /* function should be executed whenever the title input changes */
   const titleChangeHandler = (event) => {
@@ -24,7 +34,9 @@ const ExpenseForm = () => {
     occurs). */
     /* This is super useful -> means we can drill into this target and then the value, to get the value
     which was currently entered when the event occured for the element we're listening. */
-    console.log(event.target.value);
+    setEnteredTitle(event.target.value);
+    /* above we are passing event.target.value as an argument of setEnteredTitle. So now, this will 
+    be stored in our state. */
   };
 
   return (
