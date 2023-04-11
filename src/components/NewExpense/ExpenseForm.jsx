@@ -13,6 +13,16 @@ const ExpenseForm = () => {
   /* but then -> we can use destructuring to get two elements - enteredTitle -> then following the
   convention, the second should be setEnteredTitle */
 
+  /* calling useState more than once -> can have multiple states, multiple states slices or state 
+  pieces per component */
+
+  /* all of these states inside of one of the same components will be totally seperated from each 
+  other. */
+  const [enteredAmount, setEnteredAmount] = useState("");
+  /* if you read the value of an imput element, it'll always be a string even if it stores a number,
+  it'll be a number as a string. Same for date. */
+  const [enteredDate, setEnteredDate] = useState("");
+
   ///////
 
   /* function should be executed whenever the title input changes */
@@ -39,6 +49,16 @@ const ExpenseForm = () => {
     be stored in our state. */
   };
 
+  //////
+  /* How can we manage more than one state? */
+  const amountChangeHandler = (event) => {
+    setEnteredAmount(event.target.value);
+  };
+
+  const dateChangeHandler = (event) => {
+    setEnteredDate(event.target.value);
+  };
+
   return (
     <form>
       <div className="new-expense__controls">
@@ -58,13 +78,23 @@ const ExpenseForm = () => {
       <div className="new-expense__controls">
         <div className="new-expense__control">
           <label>Amount</label>
-          <input type="number" min="0.01" step="0.01" />
+          <input
+            type="number"
+            min="0.01"
+            step="0.01"
+            onChange={amountChangeHandler}
+          />
         </div>
       </div>
       <div className="new-expense__controls">
         <div className="new-expense__control">
           <label>Date</label>
-          <input type="date" min="2019-01-01" max="2024-12-31" />
+          <input
+            type="date"
+            min="2019-01-01"
+            max="2024-12-31"
+            onChange={dateChangeHandler}
+          />
         </div>
       </div>
       <div className="new-expense__actions">
