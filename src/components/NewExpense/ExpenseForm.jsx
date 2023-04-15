@@ -8,27 +8,8 @@ const ExpenseForm = () => {
   /* best to add logic here and not within the JSX code like we have discussed before. To 
   make it clear this will be called on an event - end the const name with handler */
 
-  /* we are adding useState at the beginning of the ExpenseForm function and setting the state
-  for the title input. Unitially useState('') is an empty string - for the first time 
-  nothing was entered */
-
-  /* but then -> we can use destructuring to get two elements - enteredTitle -> then following the
-  convention, the second should be setEnteredTitle */
-
-  /* calling useState more than once -> can have multiple states, multiple states slices or state 
-  pieces per component - but you can use one state - and use an OBJECT as a value. In this 
-  object, we can group together my three States. Logic is the state but now in one state object.  
-  useState is managed at one piece of state rather than three seperate slices. */
-  /* const [userInput, setUserInput] = useState({
-    enteredTitle: "",
-    enteredAmount: "",
-    enteredDate: "",
-  }); */
-  ///////
-
   /* function should be executed whenever the title input changes */
   const titleChangeHandler = (event) => {
-    // FIRST FUNCTION (born from using multiple states):
     setEnteredTitle(event.target.value);
 
     /* this function will execute everytime we type in the 'title' labeled field. We want to get the 
@@ -44,49 +25,14 @@ const ExpenseForm = () => {
     was currently entered when the event occured for the element we're listening. */
     /* above we are passing event.target.value as an argument of setEnteredTitle. So now, this will 
     be stored in our state. */
-
-    // NEW FUNCTION (born from using one state):
-    /*  setUserInput({
-       Don't want to dump the old keys - don't get rid of amount and date key value pairs. One
-      way to do this is to use the spread operator 
-      ...userInput,
-      enteredTitle: event.target.value,
-    }); */
-
-    // NEW NEW function
-    /* setUserInput((prevState) => {
-      return { ...prevState, enteredTitle: event.target.value };
-      /* react schedules state updates -> it doesn't perform them instantly. So, theoretically if you 
-      schedule a lot of state updates at the same time, you could be depending on an outdated or
-      incorrect state snapshot if you use the '// NEW FUNCTION (born from using one state)' above */
-
-    /* if you use the NEW NEW FUNCTION approach -> react will guarantee the state snapshot it gives
-      you in the inner function will always be the latest state snapshot, keeping all scheduled state
-      updates in mind. Should always use NEW NEW function whenever my state depends on the previous 
-      state.
-    }); */
   };
 
-  //////
-  /* How can we manage more than one state? */
   const amountChangeHandler = (event) => {
     setEnteredAmount(event.target.value);
-    /* setUserInput({
-      Don't want to dump the old keys - don't get rid of amount and date key value pairs. One
-      way to do this is to use the spread operator 
-      ...userInput,
-      enteredAmount: event.target.value,
-    }); */
   };
 
   const dateChangeHandler = (event) => {
     setEnteredDate(event.target.value);
-    /* setUserInput({
-       Don't want to dump the old keys - don't get rid of amount and date key value pairs. One
-      way to do this is to use the spread operator 
-      ...userInput,
-      enteredDate: event.target.value,
-    }); */
   };
 
   return (
