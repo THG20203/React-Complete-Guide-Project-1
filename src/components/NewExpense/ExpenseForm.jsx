@@ -74,7 +74,12 @@ const ExpenseForm = () => {
           should be executed when that event occurs. */}
 
           {/* in the onChange prop below I'll pass a pointer 'titleChangeHandler' as a value */}
-          <input type="text" onChange={titleChangeHandler} />
+
+          {/* two way binding -> means for inputs we don't just listen to changes, we can also pass a new value 
+          back into the input. We can therefore reset or change the input programmatically. All we have to
+          do is add the value attribute to the input element. This will set the internal value property,
+          which every input element has, and we can set it to a new value. */}
+          <input type="text" value="" onChange={titleChangeHandler} />
         </div>
       </div>
       <div className="new-expense__controls">
