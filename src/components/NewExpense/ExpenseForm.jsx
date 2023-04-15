@@ -14,39 +14,48 @@ const ExpenseForm = () => {
   convention, the second should be setEnteredTitle */
 
   /* calling useState more than once -> can have multiple states, multiple states slices or state 
-  pieces per component - BUT ITS BETTER -> to use one state - and use an OBJECT. In this object,
-  we can group together my three States. Logic is the state but now in one state object. Logic for 
+  pieces per component - BUT ITS BETTER -> to use one state - and use an OBJECT as a value. In this 
+  object, we can group together my three States. Logic is the state but now in one state object.  
   useState is managed at one piece of state rather than three seperate slices. */
-  useState({
+  const [userInput, setUserInput] = useState({
     enteredTitle: "",
     enteredAmount: "",
     enteredDate: "",
   });
 
+  /* difference is now - whenever I update this state I need to update all three properties and not 
+  just one */
+
   ///////
 
   /* function should be executed whenever the title input changes */
   const titleChangeHandler = (event) => {
-    /* this function will execute everytime we type in the 'title' labeled field */
+    // OLD FUNCTION (born from using multiple states):
+    // setEnteredTitle(event.target.value);
 
-    /* we want to get the value the user entered. How do we get that value? Pass in the event object
-    to the titleChangeHandler function. */
-
-    /* we automatically get an event oject which describes the event which occured. Thats a default 
-    JavaScript behavior you get in the browser when you listen to events.  */
+    /* this function will execute everytime we type in the 'title' labeled field. We want to get the 
+    value the user entered. Passing in the event object to the titleChangeHandler 
+    function -> we get an event oject which describes the event which occured (default JavaScript behavior 
+    you get in the browser when you listen to events)  */
 
     /* since we passed this function to react basically to the onChange prop below, react/ browser
     will make sure we get such an event object when this change event occurs */
 
     /* target is the field we're interested in -> it points at the DOM element for which the event 
-    occured -> in which cause the input. And the input in turn has a long list of properties we can read
-    and set -> namely the 'value' property (holds the current value of the input at the point this event
-    occurs). */
-    /* This is super useful -> means we can drill into this target and then the value, to get the value
-    which was currently entered when the event occured for the element we're listening. */
-    setEnteredTitle(event.target.value);
+    occured -> in which cause the input. The input in turn has a long list of properties we can read
+    and set -> the 'value' property (holds the current value of the input at the point this event
+    occurs). This means we can drill into this target and then the value, to get the value which 
+    was currently entered when the event occured for the element we're listening. */
+
     /* above we are passing event.target.value as an argument of setEnteredTitle. So now, this will 
     be stored in our state. */
+
+    // NEW FUNCTION (born from using one state):
+    setUserInput({
+      enteredTitle: event.target.value,
+      /* Don't want to dump the old keys - don't get rid of amount and date key value pairs. One
+      way to do this is to use the spread operator */
+    });
   };
 
   //////
