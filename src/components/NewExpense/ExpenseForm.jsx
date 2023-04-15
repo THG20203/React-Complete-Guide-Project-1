@@ -35,8 +35,34 @@ const ExpenseForm = () => {
     setEnteredDate(event.target.value);
   };
 
+  const submitHandler = (event) => {
+    /* onSubmit - default browser behavior and unfortunately a part of this default browser behavior 
+    is that is you do click the add expense button originally the page will reload. This is because the 
+    browser automatically sends request (when a form is submitted) to the server hosting the web page. */
+
+    /* we want to handle the submission with javascript, manually collect, combine data do something with
+    it hence disabling default behavior. praventDefault method = built into javascript. Prvent the default 
+    of this request being sent and since that request isn't being sent page will also not reload, because
+    we stay on the currently loaded page without sending any request anywhere and we can continue handling
+    this with javascript. */
+    event.preventDefault();
+
+    /* below we want to combine all our entered data */
+    const expenseData = {
+      title: enteredTitle,
+      amount: enteredAmount,
+      /* set new date, constructing a new date with the built in date constructor, to which I then in turn
+      pass the enteredDate, which will parse that date string, convert it into an object */
+      date: new Date(enteredDate),
+      /* these property names -> title, amount and date are up to me because its my object, but the 
+      values -> enteredTitle etc points towwards the state variables above */
+    };
+  };
+
   return (
-    <form>
+    /* its on the form where I want to react to onSubmit (because its the overall form element that will 
+    emit an event), and then execute some function */
+    <form onSubmit={submitHandler}>
       <div className="new-expense__controls">
         <div className="new-expense__control">
           <label>Title</label>
