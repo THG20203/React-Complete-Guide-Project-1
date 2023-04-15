@@ -57,6 +57,12 @@ const ExpenseForm = () => {
       /* these property names -> title, amount and date are up to me because its my object, but the 
       values -> enteredTitle etc points towwards the state variables above */
     };
+    /* because of value prop (two way binding) setEnteredTitle('') -> setting it back to original state. 
+    By doing that -> we override what the the user entered after the form was submitted, and therefore 
+    clear the input. */
+    setEnteredTitle("");
+    setEnteredAmount("");
+    setEnteredDate("");
   };
 
   return (
@@ -75,11 +81,23 @@ const ExpenseForm = () => {
 
           {/* in the onChange prop below I'll pass a pointer 'titleChangeHandler' as a value */}
 
-          {/* two way binding -> means for inputs we don't just listen to changes, we can also pass a new value 
+          {/* TWO WAY BINDING -> means for inputs we don't just listen to changes, we can also pass a new value 
           back into the input. We can therefore reset or change the input programmatically. All we have to
           do is add the value attribute to the input element. This will set the internal value property,
           which every input element has, and we can set it to a new value. */}
-          <input type="text" value="" onChange={titleChangeHandler} />
+
+          {/* All we haver to do is add the value attribute (default attribute) to this input element. This will
+          set the internal value property (which every input element has), and we can set it to a new value, 
+          i.e. binding it to enteredTitle. */}
+
+          {/* This is two way binding, because now we don't just listen to changes in the input to update our 
+          state, but we also feed the state back into the input, so that when we change the state we also 
+          change the input */}
+          <input
+            type="text"
+            value={enteredTitle}
+            onChange={titleChangeHandler}
+          />
         </div>
       </div>
       <div className="new-expense__controls">
@@ -89,6 +107,7 @@ const ExpenseForm = () => {
             type="number"
             min="0.01"
             step="0.01"
+            value={enteredAmount}
             onChange={amountChangeHandler}
           />
         </div>
@@ -100,6 +119,7 @@ const ExpenseForm = () => {
             type="date"
             min="2019-01-01"
             max="2024-12-31"
+            value={enteredDate}
             onChange={dateChangeHandler}
           />
         </div>
