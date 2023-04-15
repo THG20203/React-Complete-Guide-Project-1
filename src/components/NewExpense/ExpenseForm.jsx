@@ -51,6 +51,8 @@ const ExpenseForm = () => {
     be stored in our state. */
 
     // NEW FUNCTION (born from using one state):
+
+    //test
     setUserInput({
       enteredTitle: event.target.value,
       /* Don't want to dump the old keys - don't get rid of amount and date key value pairs. One
