@@ -6,9 +6,8 @@ const ExpenseForm = () => {
   make it clear this will be called on an event - end the const name with handler */
 
   /* we are adding useState at the beginning of the ExpenseForm function and setting the state
-  for the title input so to say */
-
-  /* initially useState('') is an empty string - for the first time nothing was entered */
+  for the title input. Unitially useState('') is an empty string - for the first time 
+  nothing was entered */
 
   /* but then -> we can use destructuring to get two elements - enteredTitle -> then following the
   convention, the second should be setEnteredTitle */
@@ -41,8 +40,8 @@ const ExpenseForm = () => {
     /* since we passed this function to react basically to the onChange prop below, react/ browser
     will make sure we get such an event object when this change event occurs */
 
-    /* target is the field we're interested in -> it points at the DOM element for which the event 
-    occured -> in which cause the input. The input in turn has a long list of properties we can read
+    /* target is the field we're interested in -> points at the DOM element for which the event 
+    occured. The input in turn has a long list of properties we can read
     and set -> the 'value' property (holds the current value of the input at the point this event
     occurs). This means we can drill into this target and then the value, to get the value which 
     was currently entered when the event occured for the element we're listening. */
@@ -51,23 +50,34 @@ const ExpenseForm = () => {
     be stored in our state. */
 
     // NEW FUNCTION (born from using one state):
-
-    //test
     setUserInput({
-      enteredTitle: event.target.value,
       /* Don't want to dump the old keys - don't get rid of amount and date key value pairs. One
       way to do this is to use the spread operator */
+      ...userInput,
+      enteredTitle: event.target.value,
     });
   };
 
   //////
   /* How can we manage more than one state? */
   const amountChangeHandler = (event) => {
-    setEnteredAmount(event.target.value);
+    // setEnteredAmount(event.target.value);
+    setUserInput({
+      /* Don't want to dump the old keys - don't get rid of amount and date key value pairs. One
+      way to do this is to use the spread operator */
+      ...userInput,
+      enteredAmount: event.target.value,
+    });
   };
 
   const dateChangeHandler = (event) => {
-    setEnteredDate(event.target.value);
+    // setEnteredDate(event.target.value);
+    setUserInput({
+      /* Don't want to dump the old keys - don't get rid of amount and date key value pairs. One
+      way to do this is to use the spread operator */
+      ...userInput,
+      enteredDate: event.target.value,
+    });
   };
 
   return (
