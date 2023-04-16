@@ -19,7 +19,7 @@ const ExpensesFilter = (props) => {
 
         {/* pointer passed at this function to onChange -> to make sure its the dropdownChangeHandler
         function which is triggered whenever a value is chosen. */}
-        <select onChange={dropdownChangeHandler}>
+        <select value={props.selected} onChange={dropdownChangeHandler}>
           <option value="2022">2022</option>
           <option value="2021">2021</option>
           <option value="2020">2020</option>

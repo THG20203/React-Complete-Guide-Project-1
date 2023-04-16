@@ -29,7 +29,12 @@ const Expenses = (props) => {
     <div>
       <Card className="expenses">
         {/* retain convention onChangeFilter, then point at filterChangeHandler function */}
-        <ExpensesFilter onChangeFilter={filterChangeHandler} />
+        {/* passing filteredYear (selected state) as a value for this 'selected' prop to Expenses filter,
+        and inside of ExpensesFilter, we can then use this selected prop to set value for dropdown. */}
+        <ExpensesFilter
+          selected={filteredYear}
+          onChangeFilter={filterChangeHandler}
+        />
         {/* Uppercase character - custom components must start with uppercase character */}
 
         {/* Passing data of 4 expense objects above into the expense items, so need to make expense items
