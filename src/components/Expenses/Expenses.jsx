@@ -64,8 +64,19 @@ const Expenses = (props) => {
         {/* For this, access props items (thats our array of expenses, then use built in array method (to 
         JavaScript) the map method (this creates a new array, based on another array and that basically
         transforms every element in that original array. */}
-        {/* More map explanation -> */}
-        {props.items.map()}
+        {/* More map explanation -> map takes a function which we pass as an argument in () parentheses, 
+        and that function is then executed for every item in the array on which we're calling map. */}
+        {/* The result of this function is tyhe element that will be added to the newly created array. */}
+
+        {props.items.map((expense) => (
+          {/* function body -> return the JSX element in which we want to map this expense. In this case
+        I want to map every expense in my expenses array (shown in parentheses above) into my JSX element */}
+        {/* In other words -> I want to transform the expense object to this JSX element. Want to transform
+        the expense object to this special kind of object. to this JSX element. */}
+        {/* This expense -> (which is passed as parameter into this function automatically), that expense 
+        is used to extract the title */}
+          <ExpenseItem title={expense.title} />
+        ))}
 
         {/* Uppercase character - custom components must start with uppercase character */}
 
