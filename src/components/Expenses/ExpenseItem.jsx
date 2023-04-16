@@ -1,11 +1,4 @@
-/* React is the default import, we need specifically named things from the react library -
-i.e. a function called useState */
-
-///// IMPORTANT USESTATE DEFINITION
-/* useState = function provided by the React library, allows us to define values as state
-where changes to these values should reflect in the component function being called again */
-
-import React, { useState } from "react";
+import React from "react";
 /* need to import ExpenseDate - our second custom component cause we're splitting components */
 import ExpenseDate from "./ExpenseDate";
 
@@ -30,40 +23,12 @@ attributes as properties, hence the name props */
 /* Props hold all the values we get for the attributes on our custom element We get key value
 pairs in our props object. */
 
-/* We've replaced our <div> with our custom card component (see the Card element we are returning 
-  with the class of expense-item */
-
 /* move the logic out of the JSX code which we are attempting to keep as lean as possible, 
   don't want logic within it */
 const ExpenseItem = (props) => {
-  // USE STATE SPECIFIC THEORY
-  /* useState is a hook to utilise -> MUST ONLY BE CALLED INSIDE REACT FUNCTIONS */
-
-  /* useState registers some state (some value as a state) for the component in which it is being 
-  called. Go even more precise -> it registers it for a specific component instance */
-
-  /* useState wants a default/initial state value (props.title) because we create a special 
-  variable, where changes will need this function to be called again */
-
-  /* useState returns an array, first value is the variable itself, second is the updated
-  function */
-
-  /* array destructing utilised, to store both elements in seperate variables or consts */
-
-  /* convention is call the first variable whatever you want, second set then the name 
-  of the first variable  */
-
-  const [title, setTitle] = useState(props.title);
-
-  /* In addition, whenever state changes because we click a button in this case, its only
-  this component function (expenseItem) and only that specific instance of where this component
-  is being used, where react will re-evaluate it, so will be called 4 times if we use ExpenseItem 
-  as component four times in Expenses as we are */
-
-  const clickHandler = () => {
-    setTitle("Updated!");
-  };
   return (
+    /* We've replaced our <div> with our custom card component (see the Card element we are returning 
+    with the class of expense-item */
     <Card className="expense-item">
       {/* In ExpenseItem -> referencing the split component ExpenseDate we should set the date 
       prop */}
@@ -81,13 +46,14 @@ const ExpenseItem = (props) => {
         set a title attribute. The key which I access on my props object has to 
         be the name I picked for my attribute. */}
 
-        <h2>{title}</h2>
+        {/* Now we put props.title */}
+        <h2>{props.title}</h2>
         <div className="expense-item__price">${props.amount}</div>
       </div>
       {/* Below note we are just pointing to the clickHandler function */}
 
       {/* I am repeating just the name, no parentheses etc because of JSX */}
-      <button onClick={clickHandler}>Change Title</button>
+      <button onClick={props.clickHandler}>Change Title</button>
     </Card>
   );
 };

@@ -1,3 +1,25 @@
+/* React is the default import, we need specifically named things from the react library -
+i.e. a function called useState */
+
+///// IMPORTANT USESTATE DEFINITION
+/* useState = function provided by the React library, allows us to define values as state
+where changes to these values should reflect in the component function being called again */
+
+// USE STATE SPECIFIC THEORY
+/* useState is a hook to utilise for REACT only -> registers some state (some value as a state) 
+for the component in which it is being called. Go even more precise -> it registers it for 
+a specific component instance */
+
+/* useState wants a default/initial state value (props.title) because we create a special 
+variable, where changes will need this function to be called again */
+
+/* useState returns an array, first value is the variable itself, second is the updated
+function */
+
+/* array destructing utilised, to store both elements in seperate variables or consts */
+
+/* convention is call the first variable whatever you want, second set then the name 
+  of the first variable  */
 import React, { useState } from "react";
 import "./Expenses.css";
 import ExpenseItem from "./ExpenseItem";
@@ -35,6 +57,16 @@ const Expenses = (props) => {
           selected={filteredYear}
           onChangeFilter={filterChangeHandler}
         />
+        {/* We want to render one expense item per element in the array. First of all need single curly 
+        braces (opening and closing) because we want to execute a dynamic expression in our JSX code. 
+        Expression I want to execute = reach out to my array of data (in this case the array of expenses),
+        and then for every element we want to create such a JSX element. */}
+        {/* For this, access props items (thats our array of expenses, then use built in array method (to 
+        JavaScript) the map method (this creates a new array, based on another array and that basically
+        transforms every element in that original array. */}
+        {/* More map explanation -> */}
+        {props.items.map()}
+
         {/* Uppercase character - custom components must start with uppercase character */}
 
         {/* Passing data of 4 expense objects above into the expense items, so need to make expense items
