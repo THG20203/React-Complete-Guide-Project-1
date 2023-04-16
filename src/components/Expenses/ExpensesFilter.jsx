@@ -1,9 +1,14 @@
 import React from "react";
 import "./ExpensesFilter.css";
 
-const ExpensesFilter = () => {
-  /* just as for the inputs, we will get an event object, can retrieve the chosen values from that */
-  const dropdownChangeHandler = (event) => {};
+/* just as for the inputs, we will get an event object, can retrieve the chosen values from that */
+const ExpensesFilter = (props) => {
+  /* we need to forward the value from the dropdown (the picked value) to the Expenses js file. */
+  const dropdownChangeHandler = (event) => {
+    /* we can call onChangeFilter (so the function that we recieve through that prop with that name) 
+    and forward event.target.value which is that selected year */
+    props.onChangeFilter(event.target.value);
+  };
 
   return (
     <div className="expenses-filter">

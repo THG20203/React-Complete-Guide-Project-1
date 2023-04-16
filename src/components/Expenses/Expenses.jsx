@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Expenses.css";
 import ExpenseItem from "./ExpenseItem";
 import ExpensesFilter from "./ExpensesFilter";
@@ -14,10 +14,22 @@ are no longer rendered in the App component. I have instead created a new compon
 component */
 
 const Expenses = (props) => {
+  /* First of all we have to set up a state with useState() - then initialise the state with a value of
+  2020. Then have filteredYear and setFilteredYear. */
+  const [filteredYear, setFilteredYear] = useState("2020");
+
+  /* In Expenses JS -> define the function I want to pass DOWN -> filterChangeHandler. Expect to get the 
+  selectedYear as an argument. */
+  const filterChangeHandler = (selectedYear) => {
+    /* Whenever this filter change handler function executes, we can now setFilteredYear to selectedYear,
+    which we recieve as a parameter above */
+    setFilteredYear(selectedYear);
+  };
   return (
     <div>
       <Card className="expenses">
-        <ExpensesFilter />
+        {/* retain convention onChangeFilter, then point at filterChangeHandler function */}
+        <ExpensesFilter onChangeFilter={filterChangeHandler} />
         {/* Uppercase character - custom components must start with uppercase character */}
 
         {/* Passing data of 4 expense objects above into the expense items, so need to make expense items
@@ -29,10 +41,10 @@ const Expenses = (props) => {
         values to attributes) */}
 
         {/* Access expenses array, within here first item with index 0, then in there the object -> with a 
-      title property. */}
+        title property. */}
 
         {/* note the attribute names are up to me. Just note the part after the dot matches the property names,
-      because we are accessing these objects */}
+        because we are accessing these objects */}
         <ExpenseItem
           title={props.expenses[0].title}
           amount={props.expenses[0].amount}

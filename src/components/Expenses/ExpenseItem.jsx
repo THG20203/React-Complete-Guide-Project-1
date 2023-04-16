@@ -33,10 +33,9 @@ pairs in our props object. */
 /* We've replaced our <div> with our custom card component (see the Card element we are returning 
   with the class of expense-item */
 
-const ExpenseItem = (props) => {
-  /* move the logic out of the JSX code which we are attempting to keep as lean as possible, 
+/* move the logic out of the JSX code which we are attempting to keep as lean as possible, 
   don't want logic within it */
-
+const ExpenseItem = (props) => {
   // USE STATE SPECIFIC THEORY
   /* useState is a hook to utilise -> MUST ONLY BE CALLED INSIDE REACT FUNCTIONS */
 
