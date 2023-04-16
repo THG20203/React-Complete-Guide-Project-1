@@ -25,6 +25,10 @@ const NewExpense = () => {
       because I want to make it clear that the value for this prop should be a function. This is 
       a function which will eventually be triggered when something happens inside of this component. 
       In this case, when the user saves the entered expense data - (so, when the form is submitted) */}
+
+      {/* onSaveExpenseData prop in this custom component recieves this saveExepenseData function as a
+      value. We point at the function, don't execute saveExpenseDataHandler so its passed to the
+      expense form */}
       <ExpenseForm onSaveExprenseData={saveExpenseDataHandler} />
     </div>
   );

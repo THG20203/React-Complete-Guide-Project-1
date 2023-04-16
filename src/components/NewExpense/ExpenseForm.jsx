@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./ExpenseForm.css";
 
-const ExpenseForm = () => {
+const ExpenseForm = (props) => {
   const [enteredTitle, setEnteredTitle] = useState();
   const [enteredAmount, setEnteredAmount] = useState();
   const [enteredDate, setEnteredDate] = useState();
@@ -57,6 +57,11 @@ const ExpenseForm = () => {
       /* these property names -> title, amount and date are up to me because its my object, but the 
       values -> enteredTitle etc points towwards the state variables above */
     };
+
+    /* inside of ExpenseForm we can extract the value for this prop. Calling onSaveExpenseData function, 
+    executing it. The value we get on this onSave expense data key will be a function. */
+    props.onSaveExpenseData();
+
     /* because of value prop (two way binding) setEnteredTitle('') -> setting it back to original state. 
     By doing that -> we override what the the user entered after the form was submitted, and therefore 
     clear the input. */
