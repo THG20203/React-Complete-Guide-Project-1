@@ -60,7 +60,7 @@ const ExpenseForm = (props) => {
 
     /* inside of ExpenseForm we can extract the value for this prop. Calling onSaveExpenseData function, 
     executing it. The value we get on this onSave expense data key will be a function. */
-    props.onSaveExpenseData();
+    props.onSaveExpenseData(expenseData);
 
     /* because of value prop (two way binding) setEnteredTitle('') -> setting it back to original state. 
     By doing that -> we override what the the user entered after the form was submitted, and therefore 

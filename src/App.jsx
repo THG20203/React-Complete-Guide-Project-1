@@ -38,9 +38,16 @@ const App = () => {
     },
   ];
 
+  /* define a function before we return JSX code. We expect to get our expense as a parameter,
+  then we do something with it */
+  const addExpenseHandler = (expense) => {};
+
   return (
     <div>
-      <NewExpense />
+      {/* We can pass a pointer at newExpense, so that inside of newExpense, we can call this 
+      function and pass that expense data up to the app component. */}
+      {/* pass a pointer of addExpenseHandler to the onAddExpense prop, on NewExpense */}
+      <NewExpense onAddExpense={addExpenseHandler} />
       {/* We are using props to get expenses into this new 'to be created' component. */}
       <Expenses expenses={expenses} />
     </div>

@@ -3,7 +3,9 @@ import "./NewExpense.css";
 import ExpenseForm from "./ExpenseForm";
 
 /* NewExpense looking to render a form where users can enter/input their expense data */
-const NewExpense = () => {
+
+/* on NewExpense we can accept the props argument as well */
+const NewExpense = (props) => {
   //SAVE EXPENSE DATA FUNCTION
   /* important as a parameter in the function below I will expect the entered expense data. I'm making
   it clear this function expects to get this parameter. */
@@ -17,6 +19,9 @@ const NewExpense = () => {
       /* add a unique ID */
       id: Math.random().toString(),
     };
+    /* in the saveExpenseData handler, which itself is called in the Expense Form, we can of course
+      call props.onAddExpense. Forwarding enriched expenseData */
+    props.onAddExpense(expenseData);
   };
 
   return (
