@@ -68,6 +68,7 @@ const Expenses = (props) => {
         and that function is then executed for every item in the array on which we're calling map. */}
         {/* The result of this function is tyhe element that will be added to the newly created array. */}
 
+        {/* FOR FUNCTION BELOW */}
         {/* function body -> return the JSX element in which we want to map this expense. In this case
         I want to map every expense in my expenses array (shown in parentheses above) into my JSX element 
          In other words -> I want to transform the expense object to this JSX element. Want to transform
@@ -82,6 +83,8 @@ const Expenses = (props) => {
             date={expense.date}
           />
         ))}
+
+        {/* So how could we now? */}
       </Card>
     </div>
   );
