@@ -49,8 +49,13 @@ const App = () => {
   /* Just because you change a variable doesn't mean anything, because React won't update the component. 
   Need to useState*/
   const addExpenseHandler = (expense) => {
-    /* can now call setExpenses to set our exepnses array to a new array which includes this new expense */
-    setExpenses();
+    /* can now call setExpenses to set our expenses array to a new array which includes this new expense */
+    /* Now -> how should we update this? We could could pass a new array, then say we want to add the new 
+    expense as the first item in the array, for that we could add the expense we are getting here as an item
+    to the array */
+    /* Then use the spread operator on the existing expenses to pull out all of the existing array elements 
+    and populate the rest of this new array with those existing elements */
+    setExpenses([expense, ...expenses]);
   };
 
   return (
