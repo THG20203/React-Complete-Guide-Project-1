@@ -83,8 +83,6 @@ const Expenses = (props) => {
             date={expense.date}
           />
         ))}
-
-        {/* So how could we now? */}
       </Card>
     </div>
   );
