@@ -50,10 +50,6 @@ const ExpenseItem = (props) => {
         <h2>{props.title}</h2>
         <div className="expense-item__price">${props.amount}</div>
       </div>
-      {/* Below note we are just pointing to the clickHandler function */}
-
-      {/* I am repeating just the name, no parentheses etc because of JSX */}
-      <button onClick={props.clickHandler}>Change Title</button>
     </Card>
   );
 };

@@ -34,7 +34,7 @@ const NewExpense = (props) => {
       {/* onSaveExpenseData prop in this custom component recieves this saveExepenseData function as a
       value. We point at the function, don't execute saveExpenseDataHandler so its passed to the
       expense form */}
-      <ExpenseForm onSaveExprenseData={saveExpenseDataHandler} />
+      <ExpenseForm onSaveExpenseData={saveExpenseDataHandler} />
     </div>
   );
 };
