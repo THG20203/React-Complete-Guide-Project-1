@@ -78,6 +78,13 @@ const Expenses = (props) => {
 
         {props.expenses.map((expense) => (
           <ExpenseItem
+            /* We have a way of telling react where a new item should be added.  Add a special prop to 
+            this item -> key prop. key prop -> can add to any component no matter matter if its a custom 
+            component by you or if its a built in HTML element. With key can help react identify individual
+            items. */
+            /* We need a unique value per list item. This will be the expense id, because in our expenses 
+            array every item has a unique id. */
+            key={expense.id}
             title={expense.title}
             amount={expense.amount}
             date={expense.date}
