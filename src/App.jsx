@@ -49,7 +49,9 @@ const App = () => {
   /* Just because you change a variable doesn't mean anything, because React won't update the component. 
   Need to useState */
   const addExpenseHandler = (expense) => {
-    /* can now call setExpenses to set our expenses array to a new array which includes this new expense */
+    /* can now call setExpenses, get our prevExepnses automatically by react and we would return our new 
+    array where we add this expense which we are getting as a parameter, and we then add our previous Expenses
+    with the spread operator */
     setExpenses((prevExpenses) => {
       return [expense, ...prevExpenses];
     });
