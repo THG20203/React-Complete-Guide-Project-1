@@ -11,7 +11,7 @@ export this function. App.jsx function is returning HTML code inside of a JS fil
 works in JS files because of overall project setup -> transformation steps running behind the scenes */
 
 /* DUMMY EXPENSES - initially four objects inside of expenses array */
-const expenses = [
+const DUMMY_EXPENSES = [
   {
     id: "e1",
     title: "Toilet Paper",
