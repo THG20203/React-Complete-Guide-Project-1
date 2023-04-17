@@ -36,12 +36,22 @@ const expenses = [
 const App = () => {
   /* define a function before we return JSX code. We expect to get our expense as a parameter,
   then we do something with it */
+  /////////
+
+  /* In useState pass dummy expenses -> (this array of dummy data) as an initial state value, so that 
+  we have some inital expenses to display, but then use destructuring to get access to expenses and to  
+  the set Expenses state updating function. */
+  const [expenses, setExpenses] = useState(DUMMY_EXPENSES);
+
   /* FUNCTION BELOW So how could we now update this expenses array everytime a new expense is added? We have 
   this addExpenseHandler function, which we added in the last course section -> This = triggered
   whenever a new expense is added. We even receive the expense as a parameter. */
   /* Just because you change a variable doesn't mean anything, because React won't update the component. 
   Need to useState*/
-  const addExpenseHandler = (expense) => {};
+  const addExpenseHandler = (expense) => {
+    /* can now call setExpenses to set our exepnses array to a new array which includes this new expense */
+    setExpenses();
+  };
 
   return (
     <div>
