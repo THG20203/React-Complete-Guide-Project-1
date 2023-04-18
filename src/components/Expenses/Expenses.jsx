@@ -87,7 +87,8 @@ const Expenses = (props) => {
         This expense -> (which is passed as parameter into this function automatically), that expense 
         is used to extract the title */}
 
-        {props.expenses.map((expense) => (
+        {/* need to add in filteredExpenses as the function to map over for filter above in logic to work */}
+        {filteredExpenses.map((expense) => (
           <ExpenseItem
             /* We have a way of telling react where a new item should be added.  Add a special prop to 
             this item -> key prop. key prop -> can add to any component no matter matter if its a custom 
