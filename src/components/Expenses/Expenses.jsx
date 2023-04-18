@@ -58,6 +58,24 @@ const Expenses = (props) => {
     return expense.date.getFullYear().toString() === filteredYear;
   });
 
+  /* taking conditional content out of the JSX. Create let expenseContent, assign a default value. Store JSX 
+  content like the no expenses message in a varialbe. We can return these varaibles, use them anywhere else
+  we work with values. */
+  let expensesContent = <p>No expenses found.</p>;
+
+  /* can add more logic below to check filtered expenses, in case I want to overwrite expensesContent (change 
+  value of the variable). */
+  if (filteredExpenses.length > 0) {
+    expensesContent = filteredExpenses.map((expense) => (
+      <ExpenseItem
+        key={expense.id}
+        title={expense.title}
+        amount={expense.amount}
+        date={expense.date}
+      />
+    ));
+  }
+
   return (
     <div>
       <Card className="expenses">
@@ -68,23 +86,8 @@ const Expenses = (props) => {
           selected={filteredYear}
           onChangeFilter={filterChangeHandler}
         />
-
-        {/* Conditional content - if the filteredExpenses length for that year are 0, simple message
-        no expenses are found. Default JavaScript ternary expression syntax. Condition, question mark, then
-        what we want to do if the condition is met, colon for the else case, what we want to do if its not
-        met. */}
-        {filteredExpenses.length === 0 ? (
-          <p>No expenses found.</p>
-        ) : (
-          filteredExpenses.map((expense) => (
-            <ExpenseItem
-              key={expense.id}
-              title={expense.title}
-              amount={expense.amount}
-              date={expense.date}
-            />
-          ))
-        )}
+        {/* make reference to logic above the JSX code */}
+        {expensesContent}
       </Card>
     </div>
   );
