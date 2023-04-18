@@ -47,6 +47,17 @@ const Expenses = (props) => {
     which we recieve as a parameter above */
     setFilteredYear(selectedYear);
   };
+
+  /* props.expenses = all expenses, with the filtered method called on them. Another built in method, simply 
+  filters an array. You pass a function to it -> if this function returns true a certain item is kept, if it
+  returns false its not kept. */
+  /* Filter returns a brand new array. It does not add it to the original array, instead a new array is 
+  returned, in that new array, we either keep or remove items. BUT original array is not touched. */
+  const filteredExpenses = props.expenses.filter((expense) => {
+    /* need to get full year and convert to a string to compare to a filtered year like the 2020 above */
+    return expense.date.getFullYear().toString() === filteredYear;
+  });
+
   return (
     <div>
       <Card className="expenses">
