@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./NewExpense.css";
 import ExpenseForm from "./ExpenseForm";
 
@@ -6,6 +6,9 @@ import ExpenseForm from "./ExpenseForm";
 
 /* on NewExpense we can accept the props argument as well */
 const NewExpense = (props) => {
+  /* simply need a true or false state  says whether the form should or not. Start with flase */
+  const [isEditing, setIsEditing] = useState(false);
+
   //SAVE EXPENSE DATA FUNCTION
   /* important as a parameter in the function below I will expect the entered expense data. I'm making
   it clear this function expects to get this parameter. */
@@ -24,8 +27,13 @@ const NewExpense = (props) => {
     props.onAddExpense(expenseData);
   };
 
+  const startEditingHandler = () => {
+    setIsEditingTrue(true);
+  };
+
   return (
     <div className="new-expense">
+      <button onClick={startEditingHandler}>Add New Expense</button>
       {/* Adding a new prop to expense form. Name totally up to me, I'm naming it on something 
       because I want to make it clear that the value for this prop should be a function. This is 
       a function which will eventually be triggered when something happens inside of this component. 
