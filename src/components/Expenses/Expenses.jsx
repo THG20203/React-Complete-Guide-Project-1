@@ -22,10 +22,10 @@ function */
   of the first variable  */
 import React, { useState } from "react";
 import "./Expenses.css";
-import ExpenseItem from "./ExpenseItem";
 import ExpensesFilter from "./ExpensesFilter";
 /* Go up one level in folder with .. and then into UI folder */
 import Card from "../UI/Card";
+import ExpensesList from "./ExpensesList";
 
 /* want new component - responsible for rendering the four Expense items, so that these four items
   are no longer rendered in the App component. I have instead created a new component to do that instead. */
@@ -58,24 +58,6 @@ const Expenses = (props) => {
     return expense.date.getFullYear().toString() === filteredYear;
   });
 
-  /* taking conditional content out of the JSX. Create let expenseContent, assign a default value. Store JSX 
-  content like the no expenses message in a varialbe. We can return these varaibles, use them anywhere else
-  we work with values. */
-  let expensesContent = <p>No expenses found.</p>;
-
-  /* can add more logic below to check filtered expenses, in case I want to overwrite expensesContent (change 
-  value of the variable). */
-  if (filteredExpenses.length > 0) {
-    expensesContent = filteredExpenses.map((expense) => (
-      <ExpenseItem
-        key={expense.id}
-        title={expense.title}
-        amount={expense.amount}
-        date={expense.date}
-      />
-    ));
-  }
-
   return (
     <div>
       <Card className="expenses">
@@ -86,8 +68,7 @@ const Expenses = (props) => {
           selected={filteredYear}
           onChangeFilter={filterChangeHandler}
         />
-        {/* make reference to logic above the JSX code */}
-        {expensesContent}
+        <ExpensesList items={filteredExpenses} />
       </Card>
     </div>
   );
