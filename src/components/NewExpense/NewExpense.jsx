@@ -26,6 +26,8 @@ const NewExpense = (props) => {
     /* in the saveExpenseData handler, which itself is called in the Expense Form, we can of course
       call props.onAddExpense. Forwarding enriched expenseData */
     props.onAddExpense(expenseData);
+    /* below -> close the form if it is submitted */
+    setIsEditing(false);
   };
 
   /* this function should be triggered when the button is clicked */
