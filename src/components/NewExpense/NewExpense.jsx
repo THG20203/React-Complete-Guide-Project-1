@@ -30,7 +30,7 @@ const NewExpense = (props) => {
 
   /* this function should be triggered when the button is clicked */
   const startEditingHandler = () => {
-    setIsEditingTrue(true);
+    setIsEditing(true);
   };
 
   return (
