@@ -14,7 +14,11 @@ const Chart = (props) => {
       every single data point into a Chart bar component. */}
       {/* Aim of function below -> create as many chart bar components as we have dataPoints */}
       {props.dataPoints.map((dataPoint) => (
-        <ChartBar />
+        /* Pass data into thew chart bar to control how it will be rendered, which value will be 
+        rendered there. */
+        /* Now up to this point, we're never using the chart component, so we as the creator of this 
+        component can define which kind of data we expect to extract in the future. */
+        <ChartBar value={data.point.value} />
       ))}
     </div>
   );
