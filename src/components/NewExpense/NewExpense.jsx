@@ -6,7 +6,8 @@ import ExpenseForm from "./ExpenseForm";
 
 /* on NewExpense we can accept the props argument as well */
 const NewExpense = (props) => {
-  /* simply need a true or false state  says whether the form should or not. Start with flase */
+  /* simply need a true or false state which says whether the form should or not. Start with false.
+  setIsEditing is the updating function. */
   const [isEditing, setIsEditing] = useState(false);
 
   //SAVE EXPENSE DATA FUNCTION
@@ -27,22 +28,28 @@ const NewExpense = (props) => {
     props.onAddExpense(expenseData);
   };
 
+  /* this function should be triggered when the button is clicked */
   const startEditingHandler = () => {
     setIsEditingTrue(true);
   };
 
   return (
     <div className="new-expense">
-      <button onClick={startEditingHandler}>Add New Expense</button>
+      {/* button is clicked -> setIsEditing is therefore set to true -> see the function above. */}
+      {/* show the button if we are not editing. using the && trick - check if variable is false,
+      in which case show a button. */}
+      {!isEditing && (
+        <button onClick={startEditingHandler}>Add New Expense</button>
+      )}
       {/* Adding a new prop to expense form. Name totally up to me, I'm naming it on something 
       because I want to make it clear that the value for this prop should be a function. This is 
       a function which will eventually be triggered when something happens inside of this component. 
       In this case, when the user saves the entered expense data - (so, when the form is submitted) */}
-
       {/* onSaveExpenseData prop in this custom component recieves this saveExepenseData function as a
       value. We point at the function, don't execute saveExpenseDataHandler so its passed to the
       expense form */}
-      <ExpenseForm onSaveExpenseData={saveExpenseDataHandler} />
+      {/* Check if editing is true -> if it is renderv the form */}
+      {isEditing && <ExpenseForm onSaveExpenseData={saveExpenseDataHandler} />}
     </div>
   );
 };
