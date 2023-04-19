@@ -18,7 +18,10 @@ const Chart = (props) => {
         rendered there. */
         /* Now up to this point, we're never using the chart component, so we as the creator of this 
         component can define which kind of data we expect to extract in the future. */
-        <ChartBar value={data.point.value} />
+        /* //VALUE PROP -> when define the data points later, every data point has a value property */
+        /* //MAX VALUE PROP -> Also want to make sure every bar chart plots the value, in relation to 
+        the maximum value in the entire chart. Hence max value prop. */
+        <ChartBar value={data.point.value} maxValue={null} />
       ))}
     </div>
   );
