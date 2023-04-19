@@ -33,6 +33,13 @@ const NewExpense = (props) => {
     setIsEditing(true);
   };
 
+  /* We don't really want to execute a function in Expense Form component -> we want to execute it in 
+  the New Expense component. The function below = want to trigger if the second (cancel) button we've added 
+  in ExpenseForm is clicked. To do this -> pointer down to Expense Form component. */
+  const stopEditingHandler = () => {
+    setIsEditing(false);
+  };
+
   return (
     <div className="new-expense">
       {/* button is clicked -> setIsEditing is therefore set to true -> see the function above. */}
@@ -49,7 +56,14 @@ const NewExpense = (props) => {
       value. We point at the function, don't execute saveExpenseDataHandler so its passed to the
       expense form */}
       {/* Check if editing is true -> if it is renderv the form */}
-      {isEditing && <ExpenseForm onSaveExpenseData={saveExpenseDataHandler} />}
+      {isEditing && (
+        <ExpenseForm
+          onSaveExpenseData={saveExpenseDataHandler}
+          /* prop below -> pointing at the stopEditingHandler function above for our second button 
+          (the cancel) button in ExpenseForm.jsx */
+          onCancel={stopEditingHandler}
+        />
+      )}
     </div>
   );
 };
