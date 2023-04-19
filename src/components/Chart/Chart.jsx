@@ -20,8 +20,20 @@ const Chart = (props) => {
         component can define which kind of data we expect to extract in the future. */
         /* //VALUE PROP -> when define the data points later, every data point has a value property */
         /* //MAX VALUE PROP -> Also want to make sure every bar chart plots the value, in relation to 
-        the maximum value in the entire chart. Hence max value prop. */
-        <ChartBar value={data.point.value} maxValue={null} />
+        the maximum value in the entire chart. Hence max value prop. That is currently null -> thats
+        not data which we extract from the data point, because that is a unique value which is the same 
+        for all chart bars in a given chart. We'll need to derive maxValue */
+        /* want to have a label in this case for months -> January, February, March */
+        /* //KEY PROP -> since we're outputting a list, we should also add a key. Special key prop helps
+        react render these list items efficiently. dataPoint has unique id, or maybe we use the label, so
+        we say the label should be unique -> every chart bar has its own unique label, so can use as a 
+        unique identifier for this special key prop here. */
+        <ChartBar
+          key={dataPoint.label}
+          value={data.point.value}
+          maxValue={null}
+          label={dataPoint.label}
+        />
       ))}
     </div>
   );
