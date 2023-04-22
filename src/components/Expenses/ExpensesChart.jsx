@@ -1,7 +1,6 @@
 import React from "react";
 import Chart from "../Chart/Chart";
 
-
 /* now want to have a look at our filtered expenses, make sure we go through all the expenses 
 for a selected year and that we then sum up the expenses for all the different months, and we 
 assign them here to our data points. Expect to get the filtered expenses as a prop on my expenses chart component, because we will
@@ -29,11 +28,13 @@ ExpensesChart = (props) => {
   for (const expense in props.expenses) {
     /* then we want to have a look at every expense, get the month of every expense and update the 
     value of the appropriate data point by the expense amount */
-    /* date is a date object and there we have the built in get month method - starting at 0 though */
+    /* date is a date object and there we have the built in get month method - starting at 0 though
+    so January is 0 */
     const expenseMonth = expense.date.getMonth();
+    chartDataPoints[expenseMonth];
+  }
 
-
-return <Chart />;
+  return <Chart />;
 };
 
 export default ExpensesChart;
