@@ -48,7 +48,7 @@ const ExpenseForm = (props) => {
     /* below we want to combine all our entered data */
     const expenseData = {
       title: enteredTitle,
-      amount: enteredAmount,
+      amount: +enteredAmount,
       /* set new date, constructing a new date with the built in date constructor, to which I then in turn
       pass the enteredDate, which will parse that date string, convert it into an object */
       date: new Date(enteredDate),

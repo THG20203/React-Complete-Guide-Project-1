@@ -26,6 +26,7 @@ import ExpensesFilter from "./ExpensesFilter";
 /* Go up one level in folder with .. and then into UI folder */
 import Card from "../UI/Card";
 import ExpensesList from "./ExpensesList";
+import ExpensesChart from "./ExpensesChart";
 
 /* want new component - responsible for rendering the four Expense items, so that these four items
   are no longer rendered in the App component. I have instead created a new component to do that instead. */
@@ -68,6 +69,9 @@ const Expenses = (props) => {
           selected={filteredYear}
           onChangeFilter={filterChangeHandler}
         />
+        <ExpensesChart expenses={filteredExpenses} />
+        {/* For ExpensesChart need to pass in the expneses prop because that is expected in the exoenses
+        chart component. */}
         <ExpensesList items={filteredExpenses} />
       </Card>
     </div>

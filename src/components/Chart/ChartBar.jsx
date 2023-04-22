@@ -15,7 +15,7 @@ const ChartBar = (props) => {
     /* props.Value / props.maxValue * 100 -> give us percentage between 0 and 100 which this bar should be
     filled. (with math.round -> rounding to the nearest integar. Also want to convert to a string hence the
     + "%" at the end */
-    barFillHeight = Mathround((props.vlaue / props.maxValue) * 100) + "%";
+    barFillHeight = Math.round((props.vlaue / props.maxValue) * 100) + "%";
     /* now we want to set this as the height as the CSS height for this div */
   }
   return (

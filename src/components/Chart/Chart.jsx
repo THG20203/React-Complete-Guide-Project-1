@@ -13,12 +13,15 @@ const Chart = (props) => {
   /* Therefore map here on data points will return a brand new array, which is just an array of 
   numbers. So in our case for 12 months, we'll have an array of 12 values. */
 
-  const totalMaximum = Math.max();
+  const totalMaximum = Math.max(...dataPointValues);
   /* We're calculating the total max value. Look at all the months, find the biggest value across 
   all months. This is the maximum value that should be represented in the chart */
 
   /* Now its the dataPointValues where we want to find the maximum, but since max wants a list of 
-  arguments (instead of an array) and since dataPointValues is an array,   */
+  arguments (instead of an array) and since dataPointValues is an array, we can use the spread
+  operator to pull out all the array elements as stand alone arguments to this max method. */
+
+  /* now max method -> recieve 12 arguments -> 12 values from our array pulled out by spread operator. */
 
   return (
     /* inside chart -> render chart bars */
@@ -46,8 +49,8 @@ const Chart = (props) => {
         unique identifier for this special key prop here. */
         <ChartBar
           key={dataPoint.label}
-          value={data.point.value}
-          maxValue={null}
+          value={dataPoint.value}
+          maxValue={totalMaximum}
           label={dataPoint.label}
         />
       ))}
