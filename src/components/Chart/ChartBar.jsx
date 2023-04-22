@@ -8,12 +8,14 @@ const ChartBar = (props) => {
   /* calculate by how much this specific chart instance should be filled - could have variable we name 
   bar Fill height -> initially 0% - as a text, cause this will be assigned as a css style  */
   let barFillHeight = "0%";
+
   /* then check if have max value greater than 0%, so for the given data points, we do have a max value 
   greater than 0. Could have 0 later -> if filter for month with no expenses. */
   if (props.max > 0) {
     /* props.Value / props.maxValue * 100 -> give us percentage between 0 and 100 which this bar should be
-    filled */
-    barFillHeight = Mathround((props.vlaue / props.maxValue) * 100);
+    filled. (with math.round -> rounding to the nearest integar. Also want to convert to a string hence the
+    + "%" at the end */
+    barFillHeight = Mathround((props.vlaue / props.maxValue) * 100) + "%";
   }
   return (
     <div className="chart-bar">
