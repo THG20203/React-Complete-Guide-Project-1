@@ -16,11 +16,15 @@ const ChartBar = (props) => {
     filled. (with math.round -> rounding to the nearest integar. Also want to convert to a string hence the
     + "%" at the end */
     barFillHeight = Mathround((props.vlaue / props.maxValue) * 100) + "%";
+    /* now we want to set this as the height as the CSS height for this div */
   }
   return (
     <div className="chart-bar">
       <div className="chart-bar__inner">
-        <div className="chart-bar__fill"></div>
+        <div
+          className="chart-bar__fill"
+          style={{ height: barFillHeight }}
+        ></div>
       </div>
       {/* dynamically output props.label so that the label is visible. */}
       <div className="chart-bar__label">{props.label}</div>
