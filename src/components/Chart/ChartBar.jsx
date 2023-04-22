@@ -11,11 +11,11 @@ const ChartBar = (props) => {
 
   /* then check if have max value greater than 0%, so for the given data points, we do have a max value 
   greater than 0. Could have 0 later -> if filter for month with no expenses. */
-  if (props.max > 0) {
+  if (props.maxValue > 0) {
     /* props.Value / props.maxValue * 100 -> give us percentage between 0 and 100 which this bar should be
     filled. (with math.round -> rounding to the nearest integar. Also want to convert to a string hence the
     + "%" at the end */
-    barFillHeight = Math.round((props.vlaue / props.maxValue) * 100) + "%";
+    barFillHeight = Math.round((props.value / props.maxValue) * 100) + "%";
     /* now we want to set this as the height as the CSS height for this div */
   }
   return (
