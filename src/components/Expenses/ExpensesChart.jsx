@@ -31,7 +31,16 @@ ExpensesChart = (props) => {
     /* date is a date object and there we have the built in get month method - starting at 0 though
     so January is 0 */
     const expenseMonth = expense.date.getMonth();
-    chartDataPoints[expenseMonth];
+    /* We can month to pick right data point, since January has the index zero in this array as well. */
+
+    /* So, we use the month as an index in that array. Reach out to chart data points, for given month 
+    starting at 0 and ending at 11 and updating the value of selected data point by adding something 
+    to it with += -> adding expnse amount. */
+
+    /* we are increasing the value of a given monthby that expense amount. We go through throyugh all
+    expenses to sum up all the expenses for this different months, and assign the values to the 
+    appropriate months. */
+    chartDataPoints[expenseMonth].value += expense.amount;
   }
 
   return <Chart />;
