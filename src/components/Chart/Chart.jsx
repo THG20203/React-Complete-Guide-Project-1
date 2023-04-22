@@ -4,6 +4,16 @@ import "./Chart.css";
 
 /* Create chart component function */
 const Chart = (props) => {
+  const dataPointValues = props.dataPoints.map((dataPoint) => dataPoint.value);
+  /* map method -> now we won't map the data points into JSX elements, but instead simply transform
+  them from objects to numbers */
+  /* we transfrom a data point object to just the number, the number stored in data point value. */
+  /* Therefore map here on data points will return a brand new array, which is just an array of 
+  numbers. So in our case for 12 months, we'll have an array of 12 values. */
+  const totalMaximum = Math.max();
+  /* We're calculating the total max value. Look at all the months, find the biggest value across 
+  all months. This is the maximum value that should be represented in the chart */
+
   /* inside chart -> render chart bars */
   return (
     <div className="chart">

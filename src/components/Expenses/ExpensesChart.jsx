@@ -35,15 +35,15 @@ ExpensesChart = (props) => {
 
     /* So, we use the month as an index in that array. Reach out to chart data points, for given month 
     starting at 0 and ending at 11 and updating the value of selected data point by adding something 
-    to it with += -> adding expnse amount. */
+    to it with += -> adding expense amount. */
 
-    /* we are increasing the value of a given monthby that expense amount. We go through throyugh all
+    /* we are increasing the value of a given month by that expense amount. We go through through all
     expenses to sum up all the expenses for this different months, and assign the values to the 
     appropriate months. */
     chartDataPoints[expenseMonth].value += expense.amount;
   }
 
-  return <Chart />;
+  return <Chart dataPoints={chartDataPoints} />;
 };
 
 export default ExpensesChart;
